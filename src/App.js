@@ -1,39 +1,63 @@
-
-import './App.css'
-import Login from './components/Login'
-import React from "react";
+import React, { useState } from "react";
 import {
-  BrowserRouter as Router,
-  Routes,
   Route,
-  Link,
-  BrowserRouter
+  BrowserRouter as Router,
+  Routes
 } from "react-router-dom";
-import Home from './components/Home'
-
-import Register from './components/Register'
+import './App.css';
+import JobItem from './components/JobItem';
+import Login from "./components/Login";
+import NavBar from './components/Navbar';
+import User from './components/User';
 
 
 function App() {
-  
 
+  const [user, setLoginUser] = useState({});
+
+  const [progress, setProgress] = useState(0);
+  const [profile, setProfile] = useState(true);
   return (
     <div className='App'>
-    
-  
-    
-    <Router>
-    
-    <Routes>
-          <Route exact path="/" element={<Home/>}/>
-         <Route  exact path="/login" element={<Login/>}/>
-         <Route  exact path="/register" element={<Register/>}/>
-      </Routes>
-   </Router>
-    
-    
-    
-      
+      <Router>
+        {/* <NavBar /> */}
+        {user && user._id && profile ? (
+          <NavBar setLoginUser={setLoginUser} />
+        ) : (
+          ""
+        )}
+        <Routes>
+          {user && user._id ? (
+            <Route
+              exact
+              path="/"
+              element={
+                <JobItem
+                />
+              }
+            ></Route>
+          ) : (
+            <Route
+              exact
+              path="/"
+              element={<Login setLoginUser={setLoginUser} />}
+            ></Route>
+          )}
+          <Route
+            exact
+            path="/user"
+            element={
+              <User
+                setLoginUser={setLoginUser}
+                setProfile={setProfile}
+                profile={profile}
+                user={user}
+              />
+            }
+          ></Route>
+        </Routes>
+        {/* <JobItem /> */}
+      </Router>
     </div>
   )
 }

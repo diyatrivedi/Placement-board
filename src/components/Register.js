@@ -30,7 +30,7 @@ const Register = () => {
       const data1 = await res.json();
       // console.log(data);
       alert(data1.message);
-      if (data1.success) navigate("/");
+      if (data1.success) navigate("/login");
       // history.push("/login");
     } else {
       alert("Invlid input");
@@ -51,10 +51,6 @@ const Register = () => {
           <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
             <form className="register" onSubmit={Register}>
               {console.log("User", user)}
-
-
-
-
               <div className="mb-3">
                 <label for="exampleInputEmail1" className="form-label">Name:-</label>
                 <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"

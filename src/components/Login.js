@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-const Login = () => {
+const Login = ({ setLoginUser }) => {
   const navigate = useNavigate();
 
   const [user, setUser] = useState({
@@ -25,7 +25,7 @@ const Login = () => {
     });
     const data1 = await res.json();
     alert(data1.message);
-    // setLoginUser(data1.user);
+    setLoginUser(data1.user);
     console.log(data1.success)
     if (data1.success) {
       navigate("/");
