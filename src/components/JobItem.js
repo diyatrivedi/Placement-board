@@ -29,7 +29,7 @@ const JobItem = () => {
       console.log(data);
 
       const jobResults = data.data.slice(0, 10).map((job, index) => {
-        const firstFiveLines = job.job_description.split('\n').slice(0, 3).join('\n');
+        const firstFiveLines = job.job_description.split('\n').join('\n');
 
         return (
           <>

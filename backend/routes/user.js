@@ -5,6 +5,8 @@ const Router = require("router");
 const { mongo } = require("mongoose");
 const router = Router();
 const bcrypt = require("bcrypt");
+// const cors = require('cors')
+// const multer = require('multer')
 // let user;
 
 
@@ -57,11 +59,10 @@ router.post("/login", async (req, res) => {
 });
 
 
-
 // User register request
 router.post("/register", async (req, res) => {
 
-    const { name, number, email, Enrollment_no, password, confirmPassword } = req.body;
+    const { name, number, email, Enrollment_no, password, tenthMarks, twelfthMarks, resumePdf, address, skills, CPI, clg_name, department, semester } = req.body;
     let success = false;
     try {
         let user = await User.findOne({ email: email });
@@ -74,7 +75,7 @@ router.post("/register", async (req, res) => {
             });
         } else {
             const user = new User({
-                name, number, email, Enrollment_no, password
+                name, number, email, Enrollment_no, password, tenthMarks, twelfthMarks, resumePdf, address, skills, CPI, clg_name, department, semester
             });
             const hashPassword = await bcrypt.hash(password, 10);
             user.password = hashPassword;
@@ -91,12 +92,4 @@ router.post("/register", async (req, res) => {
         res.send(err);
     }
 });
-
-
-
-
-
-
-
-
 exports.router = router;

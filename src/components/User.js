@@ -44,12 +44,55 @@ function User({ setLoginUser, user }) {
                                                 <p className="text-muted">{user.name}</p>
                                             </div>
                                         </div>
-                                        <h6>Projects</h6>
-                                        <hr className="mt-0 mb-4" />
                                         <div className="row pt-1">
-
+                                            <div className="col-20 mb-3">
+                                                <h6>Enrollment number</h6>
+                                                <p className="text-muted">{user.Enrollment_no}</p>
+                                            </div>
                                         </div>
-
+                                        <div className="row pt-1">
+                                            <div className="col-20 mb-3">
+                                                <h6>10th Marks</h6>
+                                                <p className="text-muted">{user.tenthMarks}</p>
+                                            </div>
+                                        </div>
+                                        <div className="row pt-1">
+                                            <div className="col-20 mb-3">
+                                                <h6>12th Marks</h6>
+                                                <p className="text-muted">{user.twelfthMarks}</p>
+                                            </div>
+                                        </div>
+                                        <div className="row pt-1">
+                                            <div className="col-20 mb-3">
+                                                <h6>Current CPI</h6>
+                                                <p className="text-muted">{user.CPI}</p>
+                                            </div>
+                                        </div>
+                                        <div className="row pt-1">
+                                            <div className="col-20 mb-3">
+                                                <h6>Collage  Name</h6>
+                                                <p className="text-muted">{user.clg_name}</p>
+                                            </div>
+                                        </div>
+                                        <div className="row pt-1">
+                                            <div className="col-20 mb-3">
+                                                <h6>Skills</h6>
+                                                <p className="text-muted">{user.skills}</p>
+                                            </div>
+                                        </div>
+                                        <div className="row pt-1">
+                                            <div className="col-20 mb-3">
+                                                <h6>Department</h6>
+                                                <p className="text-muted">{user.department}</p>
+                                            </div>
+                                        </div>
+                                        <div className="row pt-1">
+                                            <div className="col-20 mb-3">
+                                                <h6>Current semester</h6>
+                                                <p className="text-muted">{user.semester}</p>
+                                            </div>
+                                        </div>
+                                        <hr className="mt-0 mb-4" />
                                     </div>
                                 </div>
                                 <p className="small fw-bold mt-2 pt-1 mb-0">

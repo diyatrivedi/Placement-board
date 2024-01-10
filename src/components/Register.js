@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
 const Register = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState({
@@ -9,7 +10,18 @@ const Register = () => {
     Enrollment_no: "",
     password: "",
     confirmPassword: "",
+    CPI: "",
+    tenthMarks: "",
+    twelfthMarks: "",
+    resumePdf: null,
+    address: "",
+    skills: "",
+    clg_name: "",
+    department: "",
+    semester: "",
   });
+
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -17,9 +29,13 @@ const Register = () => {
       ...user,
       [name]: value,
     });
+
   };
+
   const Register = async (e) => {
     e.preventDefault();
+
+
     const { name, email, number, Enrollment_no, password, confirmPassword } = user;
     if (name && email && number && Enrollment_no && password && password === confirmPassword) {
       const res = await fetch("http://localhost:5000/register", {
@@ -50,9 +66,9 @@ const Register = () => {
           </div>
           <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
             <form className="register" onSubmit={Register}>
-              {console.log("User", user)}
+              {/* {console.log("User", user)} */}
               <div className="mb-3">
-                <label for="exampleInputEmail1" className="form-label">Name:-</label>
+                <label for="exampleInputEmail1" className="form-label">Name*</label>
                 <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                   value={user.name}
                   name='name'
@@ -60,7 +76,7 @@ const Register = () => {
                   onChange={handleChange} />
               </div>
               <div className="mb-3">
-                <label for="exampleInputEmail1" className="form-label">Contact No:-</label>
+                <label for="exampleInputEmail1" className="form-label">Contact No*</label>
                 <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                   value={user.number}
                   name='number'
@@ -68,7 +84,7 @@ const Register = () => {
                   onChange={handleChange} />
               </div>
               <div className="mb-3">
-                <label for="exampleInputEmail1" className="form-label">Email address</label>
+                <label for="exampleInputEmail1" className="form-label">Email address*</label>
                 <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                   value={user.email}
                   name='email'
@@ -76,7 +92,7 @@ const Register = () => {
                   onChange={handleChange} />
               </div>
               <div className="mb-3">
-                <label for="exampleInputEmail1" className="form-label">Enrollment No:-</label>
+                <label for="exampleInputEmail1" className="form-label">Enrollment No*</label>
                 <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                   value={user.Enrollment_no}
                   name='Enrollment_no'
@@ -85,7 +101,7 @@ const Register = () => {
               </div>
 
               <div className="mb-3">
-                <label for="exampleInputPassword1" className="form-label">Password</label>
+                <label for="exampleInputPassword1" className="form-label">Password*</label>
                 <input type="password" className="form-control" id="exampleInputPassword1"
                   name='password'
                   value={user.password}
@@ -93,11 +109,83 @@ const Register = () => {
                   onChange={handleChange} />
               </div>
               <div className="mb-3">
-                <label for="exampleInputPassword1" className="form-label"> Confirm Password</label>
+                <label for="exampleInputPassword1" className="form-label"> Confirm Password*</label>
                 <input type="password" className="form-control" id="exampleInputPassword1"
                   value={user.confirmPassword}
                   placeholder="Re-enter Password"
                   name='confirmPassword'
+                  onChange={handleChange} />
+              </div>
+              <div className="mb-3">
+                <label for="exampleInputPassword1" className="form-label"> Resume</label>
+                <input type="file" className="form-control" id="exampleInputPassword1"
+                  value={user.resumePdf}
+                  placeholder="Enter your Resume"
+                  name='resumePdf'
+                  onChange={handleChange} />
+              </div>
+              <div className="mb-3">
+                <label for="exampleInputPassword1" className="form-label"> 10th Marks* </label>
+                <input type="text" className="form-control" id="exampleInputPassword1"
+                  value={user.tenthMarks}
+                  placeholder="Enter your 12th Marks"
+                  name='tenthMarks'
+                  onChange={handleChange} />
+              </div>
+              <div className="mb-3">
+                <label for="exampleInputPassword1" className="form-label"> 12th Marks*</label>
+                <input type="text" className="form-control" id="exampleInputPassword1"
+                  value={user.twelfthMarks}
+                  placeholder="Enter your 12th Marks"
+                  name='twelfthMarks'
+                  onChange={handleChange} />
+              </div>
+              <div className="mb-3">
+                <label for="exampleInputPassword1" className="form-label"> Current CPI*</label>
+                <input type="text" className="form-control" id="exampleInputPassword1"
+                  value={user.CPI}
+                  placeholder="Enter your Current CPI"
+                  name='CPI'
+                  onChange={handleChange} />
+              </div>
+              <div className="mb-3">
+                <label for="exampleInputPassword1" className="form-label"> Address*</label>
+                <input type="text" className="form-control" id="exampleInputPassword1"
+                  value={user.address}
+                  placeholder="Enter your Address"
+                  name='address'
+                  onChange={handleChange} />
+              </div>
+              <div className="mb-3">
+                <label for="exampleInputPassword1" className="form-label"> Skills*</label>
+                <input type="text" className="form-control" id="exampleInputPassword1"
+                  value={user.skills}
+                  placeholder="Enter your Skills saperate by commas (,)"
+                  name='skills'
+                  onChange={handleChange} />
+              </div>
+              <div className="mb-3">
+                <label for="exampleInputPassword1" className="form-label"> Collage Name*</label>
+                <input type="text" className="form-control" id="exampleInputPassword1"
+                  value={user.clg_name}
+                  placeholder="Enter your collage name"
+                  name='clg_name'
+                  onChange={handleChange} />
+              </div>
+              <div className="mb-3">
+                <label for="exampleInputPassword1" className="form-label"> Department*</label>
+                <input type="text" className="form-control" id="exampleInputPassword1"
+                  value={user.department}
+                  placeholder="Enter your Department"
+                  name='department'
+                  onChange={handleChange} />
+              </div>
+              <div className="mb-3">
+                <label for="exampleInputPassword1" className="form-label"> Current Semester*</label>
+                <input type="text" className="form-control" id="exampleInputPassword1"
+                  value={user.semester}
+                  placeholder="Enter your Current Semester"
+                  name='semester'
                   onChange={handleChange} />
               </div>
               <button type="submit" className="btn btn-primary">Register</button>
@@ -116,8 +204,8 @@ const Register = () => {
             </form>
           </div>
         </div>
-      </div>
-    </section>
+      </div >
+    </section >
   )
 }
 
