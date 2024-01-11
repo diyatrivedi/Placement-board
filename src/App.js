@@ -7,6 +7,7 @@ import {
 import './App.css';
 import History from "./components/History";
 import Internship from "./components/Internship";
+import Job from "./components/Job";
 import JobItem from './components/JobItem';
 import Login from "./components/Login";
 import NavBar from './components/Navbar';
@@ -78,6 +79,15 @@ function App() {
                 setProfile={setProfile}
                 profile={profile}
                 user={user}
+              />
+            }
+          ></Route>
+          <Route
+            exact
+            path="/job"
+            element={
+              <Job
+
               />
             }
           ></Route>

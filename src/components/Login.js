@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 const Login = ({ setLoginUser }) => {
   const navigate = useNavigate();
 
@@ -26,22 +26,29 @@ const Login = ({ setLoginUser }) => {
     const data1 = await res.json();
     alert(data1.message);
     setLoginUser(data1.user);
-    console.log(data1.success)
+    console.log(data1.success);
     if (data1.success) {
       navigate("/");
     }
   };
   return (
-    <section className="vh-100" style={{ "marginTop": "7rem" }}>
+    <section className="vh-100" style={{ marginTop: "7rem" }}>
+      <h3
+        className=""
+        style={{
+          color: "white",
+          textAlign: "center",
+          fontStyle: "italic",
+          fontSize: "50px",
+          paddingtop: "=10px",
+          margin: "60px",
+        }}
+      >
+        Discover What’s Beyond Your Limit!
+      </h3>
       <div className="container-fluid h-custom">
         <div className="row d-flex justify-content-center align-items-center h-100">
-          <div className="col-md-9 col-lg-6 col-xl-5">
-            <img
-              src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
-              className="img-fluid"
-              alt="Sample image"
-            />
-          </div>
+          <div className="col-md-9 col-lg-6 col-xl-5"></div>
           <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
             <form className="login" onSubmit={login}>
               {console.log("User", user)}
@@ -52,7 +59,7 @@ const Login = ({ setLoginUser }) => {
                   name="Enrollment_no"
                   value={user.Enrollment_no}
                   onChange={handleChange}
-                  placeholder="Enter your Enrollment No"
+                  placeholder="Enter your Enrollment No :"
                 ></input>
               </div>
               <div className="form-outline mb-4">
@@ -62,7 +69,7 @@ const Login = ({ setLoginUser }) => {
                   name="email"
                   value={user.email}
                   onChange={handleChange}
-                  placeholder="Enter your Email"
+                  placeholder="Enter your Email :"
                 ></input>
               </div>
               <div className="form-outline mb-4">
@@ -72,7 +79,7 @@ const Login = ({ setLoginUser }) => {
                   name="password"
                   value={user.password}
                   onChange={handleChange}
-                  placeholder="Enter your Password"
+                  placeholder="Enter your Password :"
                 ></input>
               </div>
 
@@ -86,14 +93,26 @@ const Login = ({ setLoginUser }) => {
                     value=""
                     id="form2Example3"
                   />
-                  <label className="form-check-label" for="form2Example3">
-                    Remember me
+                  <label
+                    className="form-check-label"
+                    for="form2Example3 "
+                    style={{
+                      color: "white",
+                    }}
+                  >
+                    Remember me!
                   </label>
                 </div>
-                <a href="#!" onClick={() => {
-                  // Navigate("/changePassword");
-                }
-                } className="text-body">
+                <a
+                  href="#!"
+                  onClick={() => {
+                    // Navigate("/changePassword");
+                  }}
+                  className="text-body"
+                  style={{
+                    color: "white",
+                  }}
+                >
                   Forgot password?
                 </a>
               </div>
@@ -105,8 +124,13 @@ const Login = ({ setLoginUser }) => {
                 >
                   Login
                 </button>
-                <p className="small fw-bold mt-2 pt-1 mb-0">
-                  Don't have an account? {" "}
+                <p
+                  className="small fw-bold mt-2 pt-1 mb-0"
+                  style={{
+                    color: "white",
+                  }}
+                >
+                  Don't have an account?{" "}
                   <button
                     type="submit"
                     style={{ padding: "0rem 2rem" }}
@@ -124,7 +148,7 @@ const Login = ({ setLoginUser }) => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
 export default Login;

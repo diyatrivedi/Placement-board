@@ -33,28 +33,21 @@ const NavBar = ({ LoginUser, user }) => {
               </li>
             </ul>
             <ul className="">
-              <li className="nav-item">
-                <Link className="nav-link" to="/user">
-                  <div style={{
-                    color: "#1e3152",
-                    padding: "left",
-                    margin: "10px 10px",
-                    display: "flex",
-                    justifyContent: "flex-end",
-                    position: "absolute",
-                    right: "0",
-                  }}>
-                    Hello {user.name}
-                    <i
-                      className="fa-solid fa-user fa-beat-fade fa-xl"
-                    ></i>
-                  </div>
-                </Link>
-              </li>
+
+              <Link className="nav-link " to="/user">
+                <div>
+                  Hello {user.name}
+                  <i
+                    className="fa-solid fa-user fa-beat-fade fa-xl
+                      mx-3 py-3"
+                  ></i>
+                </div>
+              </Link>
+
             </ul>
           </div>
         </div>
-      </nav>
+      </nav >
     </>
   );
 };

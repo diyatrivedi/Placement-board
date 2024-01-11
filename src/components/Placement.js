@@ -4,7 +4,7 @@ import JobItem from './JobItem'
 function Placement() {
     return (
         <div>
-            {/* <JobItem /> */}
+            <JobItem />
         </div>
     )
 }

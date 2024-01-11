@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import Job from './Job';
 
 const JobItem = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -12,7 +12,7 @@ const JobItem = () => {
     const options = {
       method: 'GET',
       headers: {
-        'X-RapidAPI-Key': '5209d67708msh2b4c4487ee24df4p1a9455jsn60b60f48436e',
+        'X-RapidAPI-Key': 'ff208bbf45mshaa6b8e57de208f3p1a6c19jsnc4be9a21ae81',
         'X-RapidAPI-Host': 'jsearch.p.rapidapi.com',
       },
     };
@@ -23,62 +23,14 @@ const JobItem = () => {
     }
 
     try {
+
+
       const response = await fetch(url, options);
       const data = await response.json();
 
-      console.log(data);
 
-      const jobResults = data.data.slice(0, 10).map((job, index) => {
-        const firstFiveLines = job.job_description.split('\n').join('\n');
+      setJobs(data.data)
 
-        return (
-          <>
-            <div className="container">
-              <div className="row">
-                <div className="col-md-4" style={{ "width": "30rem" }}>
-                  <div className="card">
-                    <div
-                      style={{
-                        display: "flex",
-                        justifyContent: "flex-end",
-                        position: "absolute",
-                        right: "0",
-                      }}
-                    >
-
-                    </div>
-                    <img src={job.employer_logo} className="card-img-top" alt="..." />
-                    <div className="card-body">
-                      <h5 className="card-title">Job Title: {job.job_title}...</h5>
-                      <h5 className="card-state">Job State: {job.job_state}...</h5>
-                      <h5 className="card-publisher">Job Publisher: {job.job_publisher}.</h5>
-
-                      <h5 className='card-job-employemnt'>Job Employemnt Type{job.job_employment_type}</h5>
-                      <h5 className="card-country">Job Country: {job.job_country}...</h5>
-                      <h5 className="card-city">Job City: {job.job_city}...</h5>
-                      <h5 className="card-city">Company Type: {job.employer_company_type}...</h5>
-                      <p className="card-description">{firstFiveLines}</p>
-                      <p className="card-text">
-                        <small className="text-muted">
-                          By {!job.job_publisher ? "Unknown" : job.job_publisher} {" "}
-                        </small>
-                      </p>
-                      <form className="actions" action={job.job_apply_link} target="_blank">
-                        <button className="pref">Apply Link for this Job</button>
-                        <button className="accept">Apply Now</button>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-
-
-              </div>
-            </div >
-          </>
-        );
-      });
-
-      setJobs(jobResults);
     } catch (err) {
       console.error(err);
     }
@@ -88,23 +40,57 @@ const JobItem = () => {
     setSearchQuery(event.target.value);
   };
   return (
-    <div className='align-middle'>
+    <>
+      <div className="align-middle">
       <div className="background-image">
         <input
-          style={{ "margin-top": "10rem" }}
+          style={{
+            "margin-top": "7rem",
+            width: "450px",
+            "border-radius": "55px",
+          }}
           type="text"
           className="search"
           id="searchbar"
           placeholder="Search for Any type of Jobs Online here"
           onChange={handleSearchChange}
         />
-        <button className="search-btn" onClick={handleSearch}>
-          Search
-        </button>
+        <i
+          className="fa-solid fa-magnifying-glass "
+          style={{
+            color: "#ffffff",
+            size: "2xl",
+          }}
+          onClick={handleSearch}
+        ></i>
       </div>
       <div className="whole-container">{jobs}</div>
-    </div>
-
+    </div>
+      <div className="container">
+        <div className="row">
+          {/* console.log(jobs) */}
+          {jobs.map((job) => {
+            // console.log(job)
+            return (
+              <div className="col-md-5 mx-4 py-3" key={job.job_url}>
+                <Job
+                  imageUrl1={job.employer_logo}
+                  job_title1={job.job_title}
+                  job_state1={job.job_state}
+                  job_publisher1={job.job_publisher}
+                  job_employment_type1={job.job_employment_type}
+                  job_country1={job.job_country}
+                  job_city1={job.job_city}
+                  employer_company_type1={job.employer_company_type}
+                  job_apply_link1={job.job_apply_link}
+                  description1={job.description}>
+                </Job>
+              </div>
+            )
+          })}
+        </div>
+      </div>
+    </>
   )
 }
 

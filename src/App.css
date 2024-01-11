@@ -7,6 +7,15 @@
   pointer-events: none;
 }
 
+body {
+  background-image: url("images/blurbg.png");
+  background-repeat: no-repeat;
+  background-position-y: 30rex;
+  background-color: #083c54;
+  background-size: auto;
+  background-position-x: 5rex;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -32,6 +41,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
