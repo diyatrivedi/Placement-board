@@ -42,30 +42,30 @@ const JobItem = () => {
   return (
     <>
       <div className="align-middle">
-      <div className="background-image">
-        <input
-          style={{
-            "margin-top": "7rem",
-            width: "450px",
-            "border-radius": "55px",
-          }}
-          type="text"
-          className="search"
-          id="searchbar"
-          placeholder="Search for Any type of Jobs Online here"
-          onChange={handleSearchChange}
-        />
-        <i
-          className="fa-solid fa-magnifying-glass "
-          style={{
-            color: "#ffffff",
-            size: "2xl",
-          }}
-          onClick={handleSearch}
-        ></i>
+        <div className="background-image">
+          <input
+            style={{
+              "margin-top": "7rem",
+              width: "450px",
+              "border-radius": "55px",
+            }}
+            type="text"
+            className="search"
+            id="searchbar"
+            placeholder="Search for Any type of Jobs Online here"
+            onChange={handleSearchChange}
+          />
+          <i
+            className="fa-solid fa-magnifying-glass "
+            style={{
+              color: "#ffffff",
+              size: "2xl",
+            }}
+            onClick={handleSearch}
+          ></i>
+        </div>
+
       </div>
-      <div className="whole-container">{jobs}</div>
-    </div>
       <div className="container">
         <div className="row">
           {/* console.log(jobs) */}
