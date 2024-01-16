@@ -33,10 +33,18 @@ const Login = ({ setLoginUser }) => {
   };
   return (
     <section className="vh-100" style={{ marginTop: "7rem" }}>
+      {/* <div
+        className="card"
+        style={{
+          width: "50rem",
+        }}
+      >
+        <div className="card-body"></div>
+      </div> */}
       <h3
         className=""
         style={{
-          color: "white",
+          color: "#D6E4E5",
           textAlign: "center",
           fontStyle: "italic",
           fontSize: "50px",
@@ -46,6 +54,7 @@ const Login = ({ setLoginUser }) => {
       >
         Discover What’s Beyond Your Limit!
       </h3>
+
       <div className="container-fluid h-custom">
         <div className="row d-flex justify-content-center align-items-center h-100">
           <div className="col-md-9 col-lg-6 col-xl-5"></div>
@@ -118,9 +127,21 @@ const Login = ({ setLoginUser }) => {
               </div>
               <div className="text-center text-lg-start mt-4 pt-2">
                 <button
-                  style={{ padding: "0rem 2rem" }}
+                  // style={{
+                  //   padding: "10px 30px",
+                  //   backgroundColor: "#E4DEBE",
+                  //   fontWeight: "600",
+                  //   color: "black",
+                  //   borderradius: "4px",
+                  //   border: "none",
+                  //   transition: "all",
+                  //   ease: "0.2s",
+                  // }}
+                  style={{
+                    padding: "0.5rem 2rem",
+                  }}
                   type="submit"
-                  className="btn btn-primary btn-lg"
+                  className="btn btn-primary"
                 >
                   Login
                 </button>
@@ -132,9 +153,21 @@ const Login = ({ setLoginUser }) => {
                 >
                   Don't have an account?{" "}
                   <button
+                    style={{
+                      padding: "0.5rem 2rem",
+                    }}
                     type="submit"
-                    style={{ padding: "0rem 2rem" }}
-                    className="btn btn-primary btn-lg"
+                    // style={{
+                    //   padding: "10px 30px",
+                    //   backgroundColor: "#E4DEBE",
+                    //   fontWeight: "600",
+                    //   color: "black",
+                    //   borderradius: "4px",
+                    //   border: "none",
+                    //   transition: "all",
+                    //   ease: "0.2s",
+                    // }}
+                    className="btn btn-primary"
                     onClick={() => {
                       navigate("/register");
                     }}
@@ -151,4 +184,4 @@ const Login = ({ setLoginUser }) => {
   );
 };
 
-export default Login;
+export default Login;

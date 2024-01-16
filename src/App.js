@@ -4,6 +4,7 @@ import {
   BrowserRouter as Router,
   Routes
 } from "react-router-dom";
+import LoadingBar from "react-top-loading-bar";
 import './App.css';
 import History from "./components/History";
 import Internship from "./components/Internship";
@@ -14,7 +15,6 @@ import NavBar from './components/Navbar';
 import Placement from "./components/Placement";
 import Register from './components/Register';
 import User from './components/User';
-
 
 
 function App() {
@@ -29,6 +29,16 @@ function App() {
         ) : (
           ""
         )}
+        {user && user._id ? (
+          <LoadingBar
+            color="#f11946"
+            progress={progress}
+            height={3}
+          // onLoaderFinished={() => setProgress(0)}
+          />
+        ) : (
+          " "
+        )}
         <Routes>
           {user && user._id ? (
             <Route
@@ -36,6 +46,7 @@ function App() {
               path="/"
               element={
                 <JobItem
+                  setProgress={setProgress}
                 />
               }
             ></Route>

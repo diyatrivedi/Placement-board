@@ -77,7 +77,16 @@ const Register = () => {
                   display: "flex",
                 }}
               >
-                <div>
+                <div
+                  className="one"
+                  style={{
+                    position: "relative",
+                    margin: "40px",
+                    left: "-450px",
+                    width: "450%",
+                    top: "60px",
+                  }}
+                >
                   <div className="mb-3">
                     <label
                       for="exampleInputEmail1"
@@ -226,7 +235,17 @@ const Register = () => {
                     />
                   </div>
                 </div>
-                <div className="two">
+                <div
+                  className="two"
+                  style={{
+                    position: "relative",
+                    margin: "-20px",
+
+                    top: " 120px",
+                    width: "500%",
+                    right: "300px",
+                  }}
+                >
                   <div className="mb-3">
                     <label
                       for="exampleInputPassword1"
@@ -376,19 +395,39 @@ const Register = () => {
                   </div>
                 </div>
               </div>
-              <button type="submit" className="btn btn-primary">
+              <button
+                type="submit"
+                className="btn btn-primary btn-lg "
+                style={{
+                  padding: "0.1rem 2rem",
+                  position: "relative",
+                  right: "360px",
+                  bottom: "-30px",
+                  width: "60%",
+                }}
+              >
                 Register
               </button>
               <p
                 className=""
                 style={{
                   color: "white",
+                  position: "relative",
+                  right: "420px",
                 }}
               >
                 Already register?{" "}
                 <button
-                  style={{ padding: "0rem 2rem" }}
-                  className="btn btn-primary btn-lg"
+                  style={{
+                    padding: "0.1rem 2rem",
+                    position: "relative",
+                    width: "60%",
+                    marginTop: "60px",
+                    // marginleft: "800px",
+                    marginright: "500px",
+                  }}
+                  className="btn btn-primary btn-lg
+                  "
                   onClick={() => {
                     navigate("/login");
                   }}
@@ -404,4 +443,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Register;
